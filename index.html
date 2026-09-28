@@ -1,9 +1,296 @@
-<html>
-    <head>
-        <title>My Website</title>
-    </head>
-    <body>
-        <h1>Welcome to My Website</h1>
-        <p>This is a simple paragraph.</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Indris.exe 😂</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffd6e7, #d8c7ff, #c7f4ff);
+        }
+
+        /* Floating bubbles */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+            animation: float 7s infinite ease-in-out;
+        }
+
+        .b1 {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            top: 15%;
+        }
+
+        .b2 {
+            width: 120px;
+            height: 120px;
+            right: 8%;
+            bottom: 10%;
+            animation-delay: 2s;
+        }
+
+        .b3 {
+            width: 45px;
+            height: 45px;
+            right: 25%;
+            top: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        .card {
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(80,50,100,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .emoji {
+            font-size: 75px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(3deg);
+            }
+        }
+
+        h1 {
+            margin-top: 10px;
+            font-size: 45px;
+            color: #6d3fa5;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: #d9ffd9;
+            color: #238b23;
+            font-weight: bold;
+        }
+
+        .message {
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            font-size: 19px;
+            color: #444;
+            min-height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        button {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            background: #8b5cf6;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #7042d8;
+        }
+
+        .secret {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: rise 4s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes rise {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-250px) scale(1.5);
+            }
+        }
+
+        .footer {
+            margin-top: 20px;
+            color: #777;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bubble b1"></div>
+    <div class="bubble b2"></div>
+    <div class="bubble b3"></div>
+
+    <div class="card">
+
+        <div class="emoji">🧸</div>
+
+        <h1>INDRIS</h1>
+
+        <p class="subtitle">
+            Officially certified human... probably. 😂
+        </p>
+
+        <div class="status">
+            🟢 Indris.exe is running
+        </div>
+
+        <div class="message" id="message">
+            Loading Indris personality...
+        </div>
+
+        <button onclick="funnyMessage()">
+            😂 Press Me
+        </button>
+
+        <p class="secret">
+            ⚠️ Warning: Excessive clicking may increase Indris' confidence.
+        </p>
+
+        <div class="footer">
+            Made with 💜 for Indris
+        </div>
+
+    </div>
+
+    <script>
+
+        const messages = [
+            "Indris is 10% human and 90% random decisions. 😂",
+            "Loading brain...  ███████░░░ 73%",
+            "Indris has entered the chat. Everyone stay calm. 🚨",
+            "Scientists are still trying to understand Indris. 🧪",
+            "Indris.exe stopped working... Too much thinking. 💀",
+            "Achievement unlocked: Survived another day! 🏆",
+            "Indris' special ability: Making simple things complicated. 😂",
+            "Warning: Indris is dangerously cute today. 🐻",
+            "Brain.exe says: 'Bro, let's just watch Netflix.' 🍿",
+            "Indris has 99 problems and probably forgot what they were. 😭",
+            "System message: Indris needs snacks immediately. 🍕",
+            "Congratulations! You found Indris. Rare character unlocked! ⭐"
+        ];
+
+        let index = 0;
+
+        function funnyMessage() {
+
+            const message = document.getElementById("message");
+
+            message.style.transform = "scale(0.8)";
+            message.style.opacity = "0";
+
+            setTimeout(() => {
+
+                message.innerText = messages[index];
+
+                message.style.transform = "scale(1)";
+                message.style.opacity = "1";
+
+                index++;
+
+                if (index >= messages.length) {
+                    index = 0;
+                }
+
+                createHearts();
+
+            }, 200);
+
+        }
+
+        function createHearts() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            const emojis = ["💜", "💖", "✨", "😂", "⭐", "💕"];
+
+            heart.innerText =
+                emojis[Math.floor(Math.random() * emojis.length)];
+
+            heart.style.left =
+                Math.random() * 90 + "%";
+
+            heart.style.bottom = "10%";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // First message
+        setTimeout(() => {
+            document.getElementById("message").innerText =
+                "Welcome to the mysterious world of Indris. 👀";
+        }, 700);
+
+    </script>
+
+</body>
 </html>
